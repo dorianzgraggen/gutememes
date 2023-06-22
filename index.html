@@ -12,7 +12,7 @@
             color: white;
         }
 
-        .alles {
+        #alles {
             max-width: 800px;
             margin: 0 auto;
         }
@@ -34,11 +34,19 @@
             margin: 0 auto;
             display: block;
         }
+
+        #gremlin {
+            transition: all 1.8s ease-in;
+        }
+
+        .move-down {
+            transform: translate(0, 100vh) rotate(720deg)
+        }
     </style>
 </head>
 
 <body>
-    <div class="alles">
+    <div id="alles">
         <h1>Gute Memes</h1>
 
         <div class="meme">
@@ -62,8 +70,17 @@
         <div class="meme">
             <img src="content/scharf.jpg">
         </div>
+        <img id="gremlin" src="content/moan.jpeg" style="position: fixed; top: 0; right: 0">
     </div>
 
 </body>
 
 </html>
+
+<script>
+    document.getElementById("gremlin").onclick = (event) => {
+        event.target.classList.add("move-down");
+        const snore = new Audio("content/snore.mp3");
+        snore.play();
+    }
+</script>
